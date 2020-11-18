@@ -1,0 +1,107 @@
+{% load film_tag %}
+
+<!-- Search Form -->
+<div class="search-bar w3layouts-newsletter">
+    <h3 class="sear-head editContent">Search</h3>
+    <form action="{% url 'search' %}" method="get" class="d-flex editContent">
+        <input type="search" placeholder="Enter title..." name="q" class="form-control" required="">
+        <button type="submit" class="btn1 btn">
+            <span class="fa fa-search" aria-hidden="true"></span>
+        </button>
+    </form>
+</div>
+
+
+<!--preference -->
+<form action="{% url 'filter' %}" method="GET" name="filter">
+
+    <div class="left-side my-4">
+        <h3 class="sear-head editContent">Genres</h3>
+        <ul class="w3layouts-box-list">
+
+            {% for genre in view.get_genre %}
+            <li class="editContent">
+                <input type="checkbox" class="checked" name="genre" value="{{ genre.id }}">
+                <span class="span editContent">{{ genre.name }}</span>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+    <!-- // preference -->
+
+    <div class="left-side">
+        <h3 class="sear-head editContent">Year</h3>
+        <ul class="w3layouts-box-list">
+
+            {% for film in view.get_year %}
+            <li class="editContent">
+                <input type="checkbox" class="checked" name="year" value="{{ film.year }}">
+                <span class="span editContent">{{ film.year }}</span>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+    <button type="submit">Apply</button>
+</form>
+
+
+<!-- Reviews -->
+<div class="customer-rev left-side my-4">
+    <h3 class="sear-head editContent">Rating</h3>
+    <ul class="w3layouts-box-list">
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="editContent">5.0</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="editContent">4.0</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star-half-o" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="editContent">3.5</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="editContent">3.0</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star-half-o" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="editContent">2.5</span>
+            </a>
+        </li>
+    </ul>
+</div>
+{% get_last_films count=4 %}

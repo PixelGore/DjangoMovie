@@ -1,0 +1,40 @@
+{% load film_tag %}
+<header class="header">
+    <div class="container-fluid px-lg-5">
+        <nav class="py-4">
+            <div id="logo">
+                <h1>
+                    <a href="{% url 'home' %}" class="editContent">DjangoMovie</a>
+                </h1>
+            </div>
+
+            <label for="drop" class="toggle">Menu</label>
+            <input type="checkbox" id="drop">
+            <ul class="menu mt-2">
+                <li class="active"><a href="{% url 'home' %}">Main</a></li>
+                <li>
+                    <!--Drop Down -->
+                    <label for="drop-2" class="toggle">Categories <span class="fa fa-angle-down"
+                            aria-hidden="true"></span> </label>
+                    <a href="#">Categories <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                    <input type="checkbox" id="drop-2">
+                    <ul>
+                        {% get_categories as categories %}
+                        {% for category in categories %}
+                        <li><a href="/">{{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="contact.html"
+                        style="color: rgb(255, 255, 255); font-weight: 700; text-transform: uppercase;">Log in</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!--/banner-->
+<div class="banner-info">
+    <p class="editContent">Best site on django 3</p>
+    <h3 class="mb-4 editContent">All about cinema</h3>
+    <div class="ban-buttons"></div>
+</div>
