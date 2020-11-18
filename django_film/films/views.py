@@ -23,7 +23,7 @@ class FilmView(GenreYear, ListView):
 
     model = Film
     queryset = Film.objects.filter(draft=False)
-    paginate_by = 1
+    paginate_by = 3
 
 
 class FilmDetailView(GenreYear, DetailView):
